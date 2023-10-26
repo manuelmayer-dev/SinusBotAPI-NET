@@ -10,6 +10,9 @@ A client for the SinusBot API, written in C#/.NET
 - ☑️ No extra dependencies
 - ☑️ Asynchronous
 
+### Installation
+[NuGet](https://www.nuget.org/packages/ManuelMayer.SinusBotAPI-NET)
+
 ### Usage
 
 ```c#
