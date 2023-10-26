@@ -12,7 +12,7 @@ using SinusBotAPI.DataTypes.V1.Response.Playback;
 
 namespace SinusBotAPI;
 
-public class SinusBotClientClient : ISinusBotClient
+public class SinusBotClient : ISinusBotClient
 {
     private const string ApiV1UrlSegment = "/api/v1";
 
@@ -24,7 +24,7 @@ public class SinusBotClientClient : ISinusBotClient
 
     private string? BearerToken { get; set; }
 
-    public SinusBotClientClient(string botUrl)
+    public SinusBotClient(string botUrl)
     {
         BotUrl = botUrl;
     }
