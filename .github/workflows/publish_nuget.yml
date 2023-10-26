@@ -1,0 +1,36 @@
+name: NuGet Package
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0'
+
+      - name: Restore dependencies
+        run: dotnet restore src/SinusBotAPI-NET/SinusBotAPI-NET.csproj
+
+      - name: Build project
+        run: dotnet build src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+
+      - name: Create NuGet package
+        run: dotnet pack src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+
+      - name: Setup Publish NuGet package
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish NuGet package
+        run: dotnet nuget push src/SinusBotAPI-NET/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

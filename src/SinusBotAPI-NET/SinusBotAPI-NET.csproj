@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>SinusBot-NET</Title>
+        <Authors>Manuel Mayer</Authors>
+        <Description>A client for the SinusBot API, written in C#/.NET</Description>
+        <Copyright>Manuel Mayer</Copyright>
+        <PackageProjectUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>Bot, SinusBot, Music, API</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SinusBotAPI-NET.DataTypes.V1\SinusBotAPI-NET.DataTypes.V1.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+</Project>
