@@ -7,6 +7,8 @@ A client for the SinusBot API, written in C#/.NET
 - ☑️ Full control over your instances
 - ☑️ Full control over your files except for upload (coming soon)
 - ☑️ Full control over the bot's playback
+- ☑️ No extra dependencies
+- ☑️ Asynchronous
 
 ### Usage
 
