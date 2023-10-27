@@ -5,6 +5,15 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <WarningsAsErrors>CS8602</WarningsAsErrors>
+        <Authors>Manuel Mayer</Authors>
+        <Copyright>Manuel Mayer</Copyright>
+        <PackageId>ManuelMayer.SinusBotAPI-NET</PackageId>
+        <PackageProjectUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/manuelmayer-dev/SinusBotAPI-NET</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>Bot, SinusBot, Music, API</PackageTags>
+        <Version>0.1.1</Version>
     </PropertyGroup>
 
 </Project>
