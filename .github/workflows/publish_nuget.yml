@@ -19,18 +19,21 @@ jobs:
           dotnet-version: '7.0'
 
       - name: Restore dependencies
-        run: dotnet restore src/SinusBotAPI-NET/SinusBotAPI-NET.csproj
+        run: |
+          dotnet restore src/SinusBotAPI-NET/SinusBotAPI-NET.csproj
+          dotnet restore src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj
 
-      - name: Build project
-        run: dotnet build src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+      - name: Build projects
+        run: |
+          dotnet build src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+          dotnet build src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj --configuration Release
 
-      - name: Create NuGet package
-        run: dotnet pack src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+      - name: Create NuGet packages
+        run: |
+          dotnet pack src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
+          dotnet pack src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj --configuration Release
 
-      - name: Setup Publish NuGet package
-        uses: nuget/setup-nuget@v1
-        with:
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
-
-      - name: Publish NuGet package
-        run: dotnet nuget push src/SinusBotAPI-NET/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      - name: Publish NuGet packages
+        run: |
+          dotnet nuget push src/SinusBotAPI-NET/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+          dotnet nuget push src/SinusBotAPI-NET.DataTypes.V1/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
