@@ -33,7 +33,12 @@ jobs:
           dotnet pack src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release
           dotnet pack src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj --configuration Release
 
+      - name: Setup Publish NuGet package
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
       - name: Publish NuGet packages
         run: |
-          dotnet nuget push src/SinusBotAPI-NET/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-          dotnet nuget push src/SinusBotAPI-NET.DataTypes.V1/bin/Release/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+          dotnet nuget push src/SinusBotAPI-NET/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json
+          dotnet nuget push src/SinusBotAPI-NET.DataTypes.V1/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json
