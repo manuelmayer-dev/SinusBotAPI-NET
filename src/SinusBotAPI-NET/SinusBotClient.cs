@@ -228,7 +228,7 @@ public class SinusBotClient : ISinusBotClient
         }
 
         await HttpClientHelper.Post<PlaybackResponse>(ApiV1BotUrl.AppendString("/i/").AppendString(instanceUuid)
-            .AppendString("/value/set/").AppendString(value.ToString()), BearerToken);
+            .AppendString("/volume/set/").AppendString(value.ToString()), BearerToken);
     }
 
     public async Task StopPlayback(string instanceUuid)
