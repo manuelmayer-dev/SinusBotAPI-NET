@@ -31,7 +31,7 @@ jobs:
       - name: Create NuGet packages
         run: |
           dotnet pack src/SinusBotAPI-NET/SinusBotAPI-NET.csproj --configuration Release --output output
-          dotnet pack src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj --configuration Release output
+          dotnet pack src/SinusBotAPI-NET.DataTypes.V1/SinusBotAPI-NET.DataTypes.V1.csproj --configuration Release --output output
 
       - name: Publish NuGet packages
         run: |
